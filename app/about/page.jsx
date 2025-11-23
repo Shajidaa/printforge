@@ -1,6 +1,7 @@
 import React from "react";
 import hero from "@/public/hero-image 1.png";
 import Image from "next/image";
+
 export default function About() {
   return (
     <main>

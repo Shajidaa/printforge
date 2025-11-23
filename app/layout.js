@@ -1,14 +1,20 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Albert_Sans, Montserrat_Alternates } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import logo from "@/public/printforge-logo 1.png";
+import logo2 from "@/public/printforge-logo mobile.png";
+import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const albertSans = Albert_Sans({
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserratAlternates = Montserrat_Alternates({
   subsets: ["latin"],
+  display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat-alternates",
 });
 
 export const metadata = {
@@ -20,9 +26,41 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${albertSans} ${montserratAlternates.variable} antialiased`}
       >
+        <header className="w-full bg-white">
+          <nav className="flex justify-between px-6 py-4">
+            <Link href={"/"}>
+              <div className="relative">
+                {/* Desktop logo */}
+                <Image
+                  src={logo}
+                  alt="PrintForge Logo"
+                  className="w-[200px] h-auto hidden md:block"
+                />
+                {/* Mobile logo */}
+                <Image
+                  src={logo2}
+                  alt="PrintForge Logo"
+                  className="w-10 h-auto block md:hidden"
+                />
+              </div>
+            </Link>
+            <ul className="flex items-center gap-2.5">
+              {" "}
+              <Link href={"/3d-models"}>
+                {" "}
+                <li>3D Models</li>{" "}
+              </Link>
+              <Link href={"/about"}>
+                <li>About</li>
+              </Link>
+            </ul>
+          </nav>
+        </header>
         {children}
+
+        <footer>&copy; {new Date().getFullYear()} shajida Web Dev, LLC.</footer>
       </body>
     </html>
   );
