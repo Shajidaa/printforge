@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
             </Link>
             <ul className="flex items-center gap-2.5">
               {" "}
-              <Link href={"/3d-models"}>
+              <Link href={"/3D-models"}>
                 {" "}
                 <li>3D Models</li>{" "}
               </Link>
