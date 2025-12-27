@@ -7,7 +7,7 @@ import Pill from "../Pill/page";
 export default function ModelCard({ model }) {
   return (
     <Link
-      href={`/3d-models/${model.id}`}
+      href={`/3D-models/${model.id}`}
       className="block group hover:shadow-[0_5px_12px_rgba(0,0,0,0.1)] hover:-translate-y-[3px] transition-all"
       aria-labelledby={`model-${model.id}-title`}
     >
